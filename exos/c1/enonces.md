@@ -4,7 +4,7 @@ A produire en elixir et en javascript:
 * Sachant le jour (L/M/Me/J/V/S/D) courant, quel jour on sera dans x jours.
 
 * Créer un tableau à deux dimensions de largeur 10 et de hauteur 10 , la remplir de 0, assurer que tout le tour du tableau soit remplis de X.
-Exemple: ( ca rend mieux en console ;p )
+Exemple: 
 XXXXXX
 X0000X
 XXXXXX
