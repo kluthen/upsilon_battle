@@ -16,7 +16,7 @@ aujourdhui =  4 # pour vendredi
 dans_x_jours = 45
 
 # il y a pleins de solutions pour obtenir le jour cible mais globalement on peux se limité a une operation: Reste de division (rem)
-jour_cible = rem aujourdhui + dans_x_jours, 7 
+jour_cible = rem( aujourdhui + dans_x_jours, 7 )
 
 # IO.puts permet d'ecrire dans la console, quand vous executerez ce code, vous ne verez finalement que les effets d'IO.puts s'afficher !
 # Pour travailler avec les strings, il est toujours possible d'utiliser l'operateur " #{} " pour integrer d'autre variables
