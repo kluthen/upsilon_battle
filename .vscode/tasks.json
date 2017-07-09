@@ -1,11 +1,11 @@
 {
     "version": "0.1.0",
-    "command": "mix",
     "isShellCommand": true,
     "showOutput": "always",
     "suppressTaskName": true,
     "echoCommand": true,
     "tasks": [{
+            "command": "mix",
             "taskName": "build",
             "args": [
                 "compile"
@@ -17,7 +17,8 @@
             "isBuildCommand": true
         },
         {
-            "taskName": "run",
+            "command": "mix",
+            "taskName": "run_elixir",
             "args": [
                 "run", "${relativeFile}"
             ],
@@ -25,7 +26,15 @@
                 "$mixCompileError",
                 "$mixCompileWarning"
             ]
+        },
+        {
+            "command": "node",
+            "taskName": "run_node",
+            "args": [
+                "${relativeFile}"
+            ]
         }, {
+            "command": "mix",
             "taskName": "test",
             "args": [
                 "test"
