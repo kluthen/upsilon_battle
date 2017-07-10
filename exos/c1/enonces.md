@@ -10,6 +10,11 @@ X0000X
 XXXXXX
 
 * Faire une fonction qui imprime le tableau sur la sortie standard( params: le tableau )
+    Note: Enum.join(tableau, separateur)
+    Enum.join([1,2,3],”-”) # “1-2-3”
+    Enum.join([1,2,3],””) # “123”
+    https://hexdocs.pm/elixir/master/Enum.html#join/2 
+
 
 * Faire une fonction qui retourne l’objet a une position donnée du tableau (params: tableau, x, y) retourne {:ok, valeur}, {:erreur, :x_invalide}, {:erreur, :y_invalide} 
 
