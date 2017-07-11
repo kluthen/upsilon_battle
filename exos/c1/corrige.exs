@@ -12,7 +12,7 @@ IO.puts "Exercice 1"
 # Petite liste contenant les jours de la semaine
 jours = [:lundi, :mardi, :mercredi, :jeudi, :vendredi, :samedi, :dimanche ]
 # On se souviendra qu'on accede au valeurs d'une liste par leur "index", le quel commence a 0 (pour Lundi) et ici termine a 6 (Dimanche)
-aujourdhui =  4 # pour vendredi
+aujourdhui =  :rand.uniform(7) -1 # :rand.uniform(x) produit un chiffre entre 1 et x, -1 parce que le tableau commence a 0
 dans_x_jours = 45
 
 # il y a pleins de solutions pour obtenir le jour cible mais globalement on peux se limité a une operation: Reste de division (rem)
