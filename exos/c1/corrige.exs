@@ -79,6 +79,16 @@ IO.inspect tableau
 
 IO.inspect tableau_2
 
+
+# Resultat du truant, et feignant :) 
+truant = for i <- 0..9 do 
+    case i do 
+        x when x == 0 or x == 9 -> ["X","X","X"]
+        _ -> ["X","0","X"]
+    end
+end
+
+
 IO.puts "Exercice 3"
 # 
 # * Faire une fonction qui imprime le tableau sur la sortie standard( params: le tableau )
@@ -103,7 +113,7 @@ IO.puts "Exercice 4"
 search = fn(tableau, x, y) ->
     # Enum.at/3 permet de chercher une valeur dans une liste, et dans le cas ou cette element n'existe pas de renvoyer le troisieme parametre 
     # (ici par exemple {:erreur,:x_invalide} )
-    case Enum.at(tableau, x, {:erreur,:x_invalide}) do
+    case Enum.at(tableau, y, {:erreur,:y_invalide}) do
         # case fait plus qu'un simple test d'egalité
         # il est capable de voir a l'interieur des choses.
         # ainsi, ici on regartde si le resultat d'Enum.at/3 ressemble a {:erreur, :x_invalide }
@@ -114,7 +124,7 @@ search = fn(tableau, x, y) ->
         # et on le renvois en resultat de case juste apres.
         {:erreur, _ } = err -> err 
         ligne -> 
-            Enum.at(ligne, y, {:erreur, :y_invalide} )
+            Enum.at(ligne, x, {:erreur, :x_invalide} )
     end
 end
 
@@ -145,9 +155,9 @@ create = fn
             end
         end
         {:ok, tableau}
-    lignes, colones when lignes <= 3 ->
+    lignes, _ when lignes <= 3 ->
         {:erreur, :lignes}
-    lignes, colones when colones <= 3 ->
+    _, colones when colones <= 3 ->
         {:erreur, :colones}
 end
 

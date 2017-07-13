@@ -2,7 +2,7 @@ defmodule UpsilonBattle.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", UpsilonBattle.RoomChannel
+  channel "refresh", UpsilonBattle.RefreshChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
