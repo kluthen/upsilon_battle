@@ -19,7 +19,7 @@ defmodule UpsilonBattle.RefreshChannel do
 # 
 
   def refresh_all_players() do 
-    UpsilonBattle.Endpoint.broadcast "refresh", "", %{}
+    UpsilonBattle.Endpoint.broadcast "refresh", "refresh", %{}
   end
 
   def join("refresh", _message, socket) do
