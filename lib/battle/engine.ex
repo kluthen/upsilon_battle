@@ -13,6 +13,16 @@ defmodule UpsilonBattle.Engine do
 
     end
 
+    # Retourne la map
+    def get_map(_context) do 
+
+    end
+
+    # Retourne les joueurs
+    def get_players(_context) do 
+
+    end
+
     # Retourne true ou false :)
     def user_known?(_context, _user_id) do 
 
@@ -44,6 +54,11 @@ defmodule UpsilonBattle.Engine do
 
     # Dit quel joueurs dois jouer. 
     def get_current_player(_context) do 
+
+    end
+
+    # Dit si l'utilisateur est le joueur courant.
+    def is_current_player(_context, _user_id) do 
 
     end
 
