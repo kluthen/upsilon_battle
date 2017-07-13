@@ -1,5 +1,5 @@
 defmodule UpsilonBattle.EngineStore do 
-    def start_link do 
+    def start_link() do 
         Agent.start_link(fn -> 
             engine = %UpsilonBattle.Engine{}
             UpsilonBattle.Engine.init(engine)

@@ -13,8 +13,10 @@ defmodule UpsilonBattle do
       # Start the endpoint when the application starts
       supervisor(UpsilonBattle.Endpoint, []),
       # Start your own worker by calling: UpsilonBattle.Worker.start_link(arg1, arg2, arg3)
-      # worker(UpsilonBattle.Worker, [arg1, arg2, arg3]),
+      worker(UpsilonBattle.EngineStore, []),
     ]
+
+    
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
     # for other strategies and supported options

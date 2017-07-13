@@ -7,16 +7,27 @@ defmodule UpsilonBattle.BattleController do
   # conn = put_session(conn, :message, "new stuff we just set in the session")
   # message = get_session(conn, :message)
 
+  # S'assure qu'un user_id existe ! sinon en créer un.
+  plug :check_user
 
+  defp get_user_id(conn) do 
+    get_session(conn, :user_id)
+  end
+
+  defp get_engine() do 
+    UpsilonBattle.EngineStore.get()
+  end
 
   # GET Permet au joueurs de rejoindre le combat ! 
   def index(conn, _params) do
+    _uid = get_user_id(conn)
     render conn, "index.html"
   end
 
   # POST Inscrit un nouveau joueur
   def new_player(conn, _params) do 
-
+    _uid = get_user_id(conn)
+    _engine = get_engine()
     redirect conn, to: "/battle/map"
   end
 
@@ -66,6 +77,16 @@ defmodule UpsilonBattle.BattleController do
   def pass(conn, _params) do 
 
     json conn, %{result: :ok}
+  end
+
+  def check_user(conn, _params) do 
+    case get_session(conn, :user_id ) do 
+      nil -> 
+        put_session(conn, :user_id, UUID.uuid4())
+      _ ->
+        :ok
+      end
+      conn
   end
 
 end
