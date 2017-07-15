@@ -11,7 +11,7 @@ defmodule UpsilonBattle.Engine do
     @doc """
         Enregistre un nouvel utilisateur ...
         Peux echouer si y a deja 4 joueurs ... 
-        retour: {:ok, [positions_depart_dispo] } ou {:ok, :observateur}
+        retour: {:ok, context, [positions_depart_dispo] } ou {:ok, context, :observateur}
     """
     def add_user(_context, _user_id, _username) do 
 
@@ -48,7 +48,7 @@ defmodule UpsilonBattle.Engine do
     @doc """
         Stock la socket de communication d'un utilisateur
         Peux echouer si l'utilisateur est inconnu
-        retour :ok ou {:erreur, :inconnu}
+        retour {:ok, context } ou {:erreur, :inconnu}
     """
     def register_user_socket(_context, _user_id, _socket) do 
 
@@ -63,7 +63,7 @@ defmodule UpsilonBattle.Engine do
 
     @doc """
         Positionne l'utilisateur sur la carte (uniquement lors de la phase de positionnement)
-        return :ok ou {:erreur, :inconnu}, {:erreur, :impossible}, {:erreur, :deja_fait}
+        return {:ok, context} ou {:erreur, :inconnu}, {:erreur, :impossible}, {:erreur, :deja_fait}
     """
     def set_user_initial_position(_context, _user_id, _x, _y) do 
 
@@ -105,7 +105,7 @@ defmodule UpsilonBattle.Engine do
     @doc """
         move_set = [{x,y}] 
         decrivant toute les cases par lequel va passé le joueur
-        Retourne :ok ou {:erreur, :colision} ou {:erreur, :inconnu}
+        Retourne {:ok, context} ou {:erreur, :colision} ou {:erreur, :inconnu}
     """
     def player_moves(_context, _user_id, _move_set) do
         
@@ -113,7 +113,7 @@ defmodule UpsilonBattle.Engine do
 
     @doc """
         Attaque une case
-        Retourne :ok ou  {:erreur, :inconnu}
+        Retourne {:ok, context} ou  {:erreur, :inconnu}
     """
     def player_attacks(_context, _user_id, _target_x, _target_y) do 
 
@@ -121,6 +121,7 @@ defmodule UpsilonBattle.Engine do
 
     @doc """
         Note que l'on doit changer de joueur courant
+        Retourne {:ok, context}
     """
     def switch_to_next_player(_context) do 
 
