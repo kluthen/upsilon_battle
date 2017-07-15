@@ -42,7 +42,7 @@ defmodule UpsilonBattle.BattleController do
   # GET Recupere la map
   def map(conn, _param) do 
 
-    redirect conn, to: "/battle/map"
+    render conn, "map.html"
   end
 
   # Ces methodes doivent renvoyer du JSON ! 
