@@ -34,8 +34,8 @@ defmodule UpsilonBattle.BattleController do
   # POST Inscrit un nouveau joueur
   def new_player(conn, _params) do 
     _uid = get_user_id(conn)
-    _engine = get_engine()
-    set_engine(_engine)
+    engine = get_engine()
+    set_engine(engine)
     redirect conn, to: "/battle/map"
   end
 
