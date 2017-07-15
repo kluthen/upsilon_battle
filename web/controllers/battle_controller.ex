@@ -10,12 +10,19 @@ defmodule UpsilonBattle.BattleController do
   # S'assure qu'un user_id existe ! sinon en créer un.
   plug :check_user
 
+  # Permet de recuperer l'user id
   defp get_user_id(conn) do 
     get_session(conn, :user_id)
   end
 
+  # Recupere l'etat du jeu
   defp get_engine() do 
     UpsilonBattle.EngineStore.get()
+  end
+
+  # Stock l'etat du jeu.
+  defp set_engine(engine) do 
+    UpsilonBattle.EngineStore.set(engine)
   end
 
   # GET Permet au joueurs de rejoindre le combat ! 
@@ -28,6 +35,7 @@ defmodule UpsilonBattle.BattleController do
   def new_player(conn, _params) do 
     _uid = get_user_id(conn)
     _engine = get_engine()
+    set_engine(_engine)
     redirect conn, to: "/battle/map"
   end
 
@@ -79,6 +87,7 @@ defmodule UpsilonBattle.BattleController do
     json conn, %{result: :ok}
   end
 
+  # Controler que l'utilisateur possede un numero, sinon en créer un. 
   def check_user(conn, _params) do 
     case get_session(conn, :user_id ) do 
       nil -> 
