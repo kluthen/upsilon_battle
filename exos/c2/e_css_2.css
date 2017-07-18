@@ -1,0 +1,74 @@
+/* assure que la taille de l'article soit respectée */
+
+.size-m {
+    width: 300px;
+    height: 205px;
+    /* j'y met un peu de couleur afin qu'on puisse observer les dimensions de l'affaire ! */
+    background-color: burlywood;
+}
+
+.mask-img {
+    /* overflow: hidden: assure que ce qui deborde de la case NE SOIT PAS afficher*/
+    overflow: hidden;
+    /* La position de mask image est calculé uniquement a partir de son parent */
+    position: relative
+}
+
+
+/* assure que l'image tienne dans le cadre ;) */
+
+.mtag {
+    /* fixe sa position par rapport au premier parent dont la position est relative ou absolute. Si y en a pas, il se positionne en fonction de Body.
+            Aussi, les objet en position absolute ne sont plus dans le flow ... c est a dire que le navigateur va mettre des truc en dessous d'eux !*/
+    position: absolute;
+    background-color: #FF7700;
+    color: #FFF;
+    padding: 3px;
+}
+
+img {
+    width: 100%
+}
+
+.group-wrapper {
+    /* On met le titre un peu au dessus de l'image */
+    position: absolute;
+    /* Met on l'attache au pied de l'image (sinon il serai perdu quelque part en haut de la page ;) */
+    bottom: 0;
+    /* Douzieme methode pour créer une couleur. Celle ci est transparente :) Les chiffres sont en decimal, et les valeurs autoriser vont de 0 a 255 */
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.titre-wrapper {
+    margin: 4px;
+    opacity: 1;
+}
+
+
+/* On reduit un peu la taille du texte ;) change la couleur, etc */
+
+.first-lien {
+    color: #FFF;
+    /* depend de la taille de la police par defaut */
+    font-size: 1rem;
+    /* Retire le soulignement du lien */
+    text-decoration: none;
+}
+
+.date-comm {
+    /* un peu comme position:absolute, sauf que cela fait s'en aller l'objet a droite au lieu d'en haut pour ainsi dire ;) */
+    /* On notera que float contraiement a absolute fait toujours parti du flow, ce qui fait qu'il compte dans le positonnement des autres balises. */
+    float: right;
+}
+
+.bloc-machine-one-line {
+    display: inline;
+}
+
+.clearfix::after {
+    /* clearfix permet d'eviter les problemes du au float ;) */
+    /* belive me on this one ;p */
+    content: "";
+    clear: both;
+    display: table;
+}
