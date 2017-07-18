@@ -1,0 +1,104 @@
+/* Fichier de style relatif a e_style_js.html ... exemples pour le cours 2 HTML - Style & JS ! */
+
+
+/*
+    La balise HR est responsable pour l'apparition de lignes horizontale permetant de separé les contenus.
+*/
+
+hr {
+    /* 
+        La proprieté width permet de definir la largeur maximum de la balise !
+        Accepte des valeurs en %, px(pixel), em(taille universelle)
+    */
+    width: 75%;
+}
+
+
+/*
+    Definit l'effet que vont subir toute les balises possedant la class super-important
+    Noter bien le . précédant le nom de la class ! 
+*/
+
+.super-important {
+    color: red;
+}
+
+.mega-important {
+    font-weight: bold
+}
+
+
+/* En cas de conflit, la derniere regle s'applique ! */
+
+
+/*
+    Il est possible de definir des regles un peu plus complique
+    Cette regle s'appliquera uniquement sur les balise LI possedant la class super-important
+
+    On notera qu'elle defini aussi la couleur. Mais comme dans le fichier cette regle arrive apres la definition de super-important, elle est devient prioritaire !
+*/
+
+
+/* Attention, li dois etre attacher a super-important ! */
+
+li.super-important {
+    color: green;
+}
+
+
+/* sinon cela donne cela ! */
+
+li .super-important {
+    color: orangered;
+}
+
+
+/* 
+    Vous ne verez pas d'element de liste rouge orangé ... 
+    Cette notation cible toute les LI qui ont des enfant possedant la class super-important
+*/
+
+
+/*
+    A contrario celle si va faire que toute les li fils de ul avec la class important apparaitrons avec un fond gris.
+*/
+
+ol.important li {
+    background-color: gray;
+}
+
+
+/*
+    D'ailleur, rien ne dit que les listes doivent apparaitre en ligne !
+    display: permet de changer la maniere dont sont organiser les balises. Voir le cours sur les divs.
+    margin ( et ces petits freres ) definissent la distance a l'exterieur de la balise avant de pouvoir mettre autre chose.
+    (cela fait qu'on vois un petit espace sur la deuxieme liste ol).
+    a l'inverse de padding qui definis la distance entre le contenu de la balise et la frontiere de la balise.
+*/
+
+ol li {
+    display: inline;
+    margin-right: 5px;
+}
+
+
+/* 
+    il y a quelques options sympa du style, que ce passe t'il quand on survole une balise ... 
+*/
+
+a.test-hover:hover {
+    background-color: aquamarine;
+}
+
+
+/*
+    Il est aussi possible de travailler avec les ID ;)
+*/
+
+a#lien-listes:hover {
+    background-color: pink;
+}
+
+.blueish {
+    background-color: cornflowerblue;
+}

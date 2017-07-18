@@ -1,0 +1,126 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- Permet d'ajouter une feuille de style externe voir le fichier e_style.css -->
+    <link rel="stylesheet" type="text/css" href="e_style.css" />
+    <!-- Une alternative est d'integrer le CSS directement ici -->
+    <style>
+        /* En CSS les commentaire s'ecrivent ainsi */
+        
+        body {
+            /* On notera que l'on peut ecrire les couleurs de differentes facons ... */
+            /* Ceci est de l'hexadecimal. Pour le comprendre, c'est tres simple: 
+            Deja il faut savoir que l'hexadecimal se compte en base 16, c'est a dire que les chiffres vont de 0 a F avant de passé a la dizaine supérieur: 
+            0 1 2 3 4 5 6 7 8 9 A B C D E F -> 10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F -> etc ...
+
+            On divise le chiffre en trois partie:
+                    R  G  B
+                    B0 F0 C0 
+            Les trois chiffre vont donc de 00 a FF. 00 etant la plus petite valeur et FF la plus grande.
+            par exemple, Si on code une couleur 00 00 00, elle apparaitra NOIR, car on indique 00 rouge, 00 vert et pour finir 00 bleu.
+            Inversement, une couleur FF FF FF apparaitra blanche ! 
+            FF 00 00 donnera une couleur rouge
+            00 FF 00 Vert
+            00 00 FF Bleu
+            FF FF 00 Jaune
+            FF 00 FF Violet
+            00 FF FF turquoise
+            */
+            background-color: #B0F0C0;
+        }
+        
+        h1 {
+            /* 
+                on peux aussi utiliser des couleurs nommées. Y en a un sacres paquet ;) 
+                https://www.w3schools.com/cssref/css_colors.asp
+            */
+            color: red;
+        }
+        
+        h2 {
+            /* Peux aussi s'ecrire en version courte ! */
+            background-color: #FF0;
+        }
+    </style>
+    <!-- Permet d'integrer un fichier de script e_js.js -->
+    <script type="text/javascript" src="e_js.js"></script>
+    <!-- Permet d'utiliser jQuery ! -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+</head>
+
+<body>
+    <h1 id="titre">Exemples pour le cours 2 - HTML - Style & JS </h1>
+
+    <hr/>
+    <h2 id="paragraphes"> Paragraphes et styles de texte </h2>
+    <p>
+        <!-- une class a été ajoutée a la balise SPAN, regarder le contenu du fichier CSS pour plus d'informations ! -->
+        Voici un bien <b>joli</b> paragraphe avec <i>joli</i> écris en <span class="super-important">gras puis en italique</span>.
+    </p>
+
+
+    <hr/>
+    <h2 id="tables"> Les tables </h2>
+    <table border=1>
+        <tr>
+            <th> Premiere colone ! </th>
+            <th> Deuxieme colone ! </th>
+        </tr>
+        <tr>
+            <td> Un premier champ </td>
+            <td> Un second champ </td>
+        </tr>
+        <tr>
+            <!-- Il est important de noté qu'une balise peux avoir plusieurs classes ! -->
+            <td class="super-important mega-important"> Deuxieme ligne, premiere colone </td>
+            <td> Deuxieme ligne, seconde colone </td>
+        </tr>
+    </table>
+
+    <hr/>
+    <h2 id="listes"> Les Listes </h2>
+    <ul>
+        <li> Une voiture </li>
+        <li> Une moto </li>
+        <li> Un velo </li>
+    </ul>
+    <ol>
+        <li class="super-important"> Une porche </li>
+        <li> Une vache </li>
+        <li> Une patate </li>
+    </ol>
+
+    <hr/>
+
+    <small> Attention y a un index beaucoup plus bas !</small>
+
+    <br/>
+
+    <h2 id="javascript"> Javascript </h2>
+
+    <!-- Ceci est une methode pour taper du javascript, voir le cours de javascript un peu plus bas pour plus d'infos ;) -->
+    <script>
+        toggle = function() {
+            // Permet de mettre(ou de retirer si deja présente)  la class super-important.
+            // on cible l'element avec l'id javascript.
+            $("#javascript").toggleClass("super-important");
+        };
+    </script>
+
+    <a href="#" onclick="toggle()"> Clicker moi ! </a><br/>
+    <a href="#" onclick="toggleBackground()"> Clicker moi ! (Ca vien de plus loin cette fois ;p) </a>
+
+    <h2 id="index"> Index </h2>
+    <ol class="important">
+        <li><a href="#titre" class="test-hover"> Vers le titre </a></li>
+        <li><a href="#paragraphes"> Vers le paragraphe </a></li>
+        <li><a href="#tables"> Vers les tables </a></li>
+        <li><a href="#listes" id="lien-listes"> Vers les listes </a></li>
+    </ol>
+</body>
+
+</html>

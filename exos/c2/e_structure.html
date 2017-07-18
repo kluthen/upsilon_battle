@@ -1,0 +1,84 @@
+<html>
+<!-- La balise HTML dois englobé toute la page ! -->
+<!-- Ceci est un commentaire -->
+
+<head>
+    <!-- Cette balise HEAD contient toute les informations permettant d'assister le navigateur pour faire son boulot d'affichage. Ne sera jamais affichée -->
+    <meta charset="utf-8" />
+    <!-- Ajouter cette balise meta assure que vous puissiez travailler avec tout les caracteres francais, tel que é è etc ... -->
+</head>
+
+<body>
+    <!-- Cette balise BODY contient toute les informations concrete de la page. Sera affichée -->
+    <!-- Toute les balises peuvent avoir un ID. Lequel dois etre unique. -->
+    <!-- Les balises H1, H2, H3, H4 servent a organisé les titres et sous titre d'un document. -->
+    <h1 id="titre">Exemples pour le cours 2 - HTML - Structure </h1>
+
+    <hr/>
+    <h2 id="paragraphes"> Paragraphes et styles de texte </h2>
+    <p>
+        <!-- La balise SPAN est utilisé pour appliquer du style a certains elements de texte. Ici elle fait ecrire en rouge. -->
+        Voici un bien <b>joli</b> paragraphe avec <i>joli</i> écris en <span style="color:red;">gras puis en italique</span>.
+    </p>
+
+
+    <hr/>
+    <h2 id="tables"> Les tables </h2>
+    <!-- La balise TABLE annonce un tableau (ahah) -->
+    <!-- border=1 permet de rendre visible les bordure du tableau, si on remplace le 1 par 0, alors elles deviennent invisible. -->
+    <table border=1>
+        <!-- La Balise TR declare une ligne -->
+        <tr>
+            <!-- La Balise TH declare une entete. Par defaut apparait en gras. -->
+            <th> Premiere colone ! </th>
+            <th> Deuxieme colone ! </th>
+        </tr>
+        <tr>
+            <!-- La Balise TD. Declare un champ ! -->
+            <td> Un premier champ </td>
+            <td> Un second champ </td>
+        </tr>
+        <tr>
+            <td> Deuxieme ligne, premiere colone </td>
+            <td> Deuxieme ligne, seconde colone </td>
+        </tr>
+    </table>
+
+    <hr/>
+    <h2 id="listes"> Les Listes </h2>
+    <!-- La balise UL declare une Liste Unordered, non ordonnée. -->
+    <ul>
+        <!-- La balise LI declare une List Item, un element de liste -->
+        <li> Une voiture </li>
+        <li> Une moto </li>
+        <li> Un velo </li>
+    </ul>
+    <!-- La balise OL declare une Liste Ordonnée -->
+    <ol>
+        <li> Une porche </li>
+        <li> Une vache </li>
+        <li> Une patate </li>
+    </ol>
+
+    <hr/>
+
+    <small> Attention y a un index beaucoup plus bas !</small>
+
+    <!-- On va créer artificiellement de l'espace ( d'autre techniques plus sophistiqué que cela existe pour obtenir le même resultat mais passons ...) -->
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+    <h2 id="index"> Index </h2>
+    <ol>
+        <!-- Les balises A servent a utiliser les Ancres et les changements de pages web.
+            Ici nous créons un petit menu nous permettant de faire recentrer l'ecran sur les differents éléments de cette page ! 
+            Pour ce faire, l'attribut href dois contenir la cible. Ici on vise les balises avec des id en utilisant la syntaxe
+            href="#<id>"
+        -->
+        <li><a href="#titre"> Vers le titre </a></li>
+        <li><a href="#paragraphes"> Vers le paragraphe </a></li>
+        <li><a href="#tables"> Vers les tables </a></li>
+        <li><a href="#listes"> Vers les listes </a></li>
+    </ol>
+</body>
+
+</html>
