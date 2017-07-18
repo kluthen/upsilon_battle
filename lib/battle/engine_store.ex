@@ -11,4 +11,9 @@ defmodule UpsilonBattle.EngineStore do
             fn engine -> engine end
         )
     end
+
+    def set(engine) do 
+        Agent.update(__MODULE__,
+            fn -> engine end )
+    end
 end
