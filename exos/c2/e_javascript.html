@@ -1,15 +1,99 @@
 <html>
+<!-- Cours 2, Exercice 4 - Javascript , quelques exemples :) -->
 
 <head>
     <meta charset="utf-8" />
     <!-- Permet d'integrer un fichier de script e_js_2.js -->
     <script type="text/javascript" src="e_js.js"></script>
-    <!-- Permet d'utiliser jQuery ! -->
+    <!-- Permet d'utiliser jQuery ! (Cas 4) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <style>
+        .rouge {
+            color: red;
+        }
+    </style>
+
+    <script>
+        // Pour le cas 1.2 on créer la fonction en avance: 
+        rougifie = function(cible) {
+            // voir plus bas pour document.getElementById() ;)
+            // classList.toggle() permet de mettre la class si elle n'y est pas deja
+            // et de la retiré si elle est deja la.
+            document.getElementById(cible).classList.toggle('rouge');
+        }
+    </script>
 </head>
 
 <body>
+    <h1>Cas 1 </h1>Javascript directement inclus dans la balise.
+    <div class="main">
+        <div class="top"><a href="#" onclick="document.getElementById('va_etre_modifier_1').classList.toggle('rouge'); ">Clicker ici ! </a></div>
+        <div class="bottom"><span id="va_etre_modifier_1">Lorem Ipsum </span></div>
+    </div>
+    <h1>Cas 1.2 </h1>Avec le javascript inscrit en avance dans une fonction qui est appeler depuis la balise.
+    <div class="main">
+        <div class="top"><a href="#" onclick="rougifie('va_etre_modifier_12')">Clicker ici ! </a></div>
+        <div class="bottom"><span id="va_etre_modifier_12">Lorem Ipsum </span></div>
+    </div>
+    <h1>Cas 2 </h1>Avec le javascript appliqué apres coup sur un element.
+    <div class="main">
+        <div class="top"><a href="#" id="bouton_2">Clicker ici ! </a></div>
+        <div class="bottom"><span id="va_etre_modifier_2">Lorem Ipsum </span></div>
+    </div>
+    <h1>Cas 3 </h1>Methode Event Handler; )
+    <div class="main">
+        <div class="top"><a href="#" id="bouton_3">Clicker ici ! </a></div>
+        <div class="bottom"><span id="va_etre_modifier_3">Lorem Ipsum </span></div>
+    </div>
+    <h1>Cas jQuery </h1>Methode Event Handler; )
+    <div class="main">
+        <div class="top"><a href="#" id="bouton_4">Clicker ici ! </a></div>
+        <div class="bottom"><span id="va_etre_modifier_4">Lorem Ipsum </span></div>
+    </div>
+    <script>
+        // cas 2
+        // document permet de faire des recherches dans le DOM Tree ( l'ensemble des balises du fichiers )
+        // getElementById permet cette recherche en utilisant "id" d'une balise.
+        bouton = document.getElementById('bouton_2');
+        // L'element comme la balise possede un attribut on click, qu'on peux indiquer.
+        // on est obliger de la mettre dans une autre fonction, car sinon, la fonction rougifie est appelé des le chargement de la page
+        // Vous pouvez le tester vous même evidement ;)
+        bouton.onclick = function() {
+            rougifie('va_etre_modifier_2');
+        }
 
+        // cas 3
+        // addEventListener permet d'enregistrer plusieurs actions pour un même evenement
+        // c'est beaucoup plus propre ( cela evite d'ecrase le travail des autres par exemples :) 
+        bouton = document.getElementById('bouton_3');
+        bouton.addEventListener('click',
+            function() {
+                rougifie('va_etre_modifier_3');
+            }
+
+        );
+
+
+        // version jQuery
+        rougifie_jquery = function(cible) {
+            // toggleClass est l'equivalent de classList.toggle :)
+            $(cible).toggleClass('rouge');
+        }
+
+        // cas 4 jquery.
+        // avec jQuery on recupere la fonction $(cible)
+        // la cible est un selecteur CSS ( l'equivalent des designation pour les regles CSS )
+        // il se peux que cela renvois plusieurs objets, dans ce cas soit vous faites un iterateur
+        // soit vous l'utiliser comme si ce n'etait qu'un seul objet et toute les actions seront appliquer sur tout les objets ;)
+        // la fonction on(event, function) est l'equivalent d'addEventListener()
+        $("#bouton_4").on('click',
+            function() {
+                rougifie_jquery('#va_etre_modifier_4');
+            }
+
+        );
+    </script>
 </body>
 
 </html>
