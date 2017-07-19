@@ -5,5 +5,25 @@
 <a href="/battle/"> Au combat ! </a>
 
 
+<h2> Exercices 1 <small> bon et parfois aussi exercice 2 ;) </small> </h2>
 
+<!-- afin de recuperer les valeurs que nous avons "assign" dans le controlleur,
+ il faut utiliser l'operateur @ de cette facon -->
+
+ <p>
+  Sachant que nous somme un <b><%= @aujourdhui %> </b>, <br/>
+  dans <b style="color:red;"> <%= @cible %> jours </b> nous serons un ... <br/>
+  <b><span style="color:darkorange"> <%= @resultat %> </span></b>
+  </p>
+
+
+<h2> Exercice 2 </h2>
+
+<form method="get" action="/" >
+  <!-- La balise input possede un champ value qui permet d'indiquer la valeur par defaut -->
+  <!-- La balise input possede un champ min et max qui permettent d'indiquer la valeur minimum et maximum. -->
+  <label for="aujourdhui">Aujourd'hui: </label><input type="number" name="aujourdhui" min="0" max="6" value="1" /></br>
+  <label for="dans_x_jours">Cible: </label><input type="number" name="dans_x_jours" min="0" max="100" value="45" /></br>
+  <button type="submit"> Envoyer </button></br>
+</form>
 
