@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Exercice 3: Divs & Bootstrap -->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    <style>
+        /* Des styles surtout pour voir un peu plus clair dans cette affaire ;) les bg-color on les virera plus tard ;p */
+        
+        .bg-red {
+            background-color: coral;
+        }
+        
+        .bg-blue {
+            background-color: aquamarine;
+        }
+        
+        .bg-green {
+            background-color: darkseagreen;
+        }
+        
+        .long {
+            height: 600px;
+        }
+        
+        .milong {
+            height: 200px;
+        }
+        
+        .court {
+            height: 100px;
+        }
+        
+        .player_1 {
+            background-color: red;
+        }
+        
+        .player_2 {
+            background-color: blue;
+        }
+        
+        .player_3 {
+            background-color: green;
+        }
+        
+        .obstacle {
+            background-color: black;
+        }
+        /* Bon avec ce code la on rend visible les bordures de la table */
+        
+        table tr td {
+            width: 30px;
+            height: 30px;
+            border: 1px solid black;
+        }
+        /* Avec ce CSS la on s'assure qu'elle soit a peut pret au milieu de la zone cible.*/
+        
+        table {
+            border-collapse: collapse;
+            position: relative;
+            margin: auto;
+            top: 150px;
+        }
+        
+        .players {
+            display: table;
+            padding: 0;
+        }
+        
+        .player {
+            display: table-cell;
+            box-sizing: border-box;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            vertical-align: center;
+        }
+        
+        .current::after {
+            content: "\2713";
+        }
+        
+        .expanded {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- On commence a ecrire du code HTML a partir d'ici pour bootstrap ! -->
+        <div class="row court">
+            <div class="col-md-12 bg-red court">
+                <h1> Upsilon Battle <small> Bataille en cours … </small></h1>
+            </div>
+        </div>
+        <div class="row long">
+            <div class="col-md-8  bg-blue long">
+                <!-- ICI on construit la table de combat ! -->
+                <table>
+                    <tr>
+                        <td data-row="0" data-col="0" class="obstacle">&nbsp;</td>
+                        <td data-row="0" data-col="1"></td>
+                        <td data-row="0" data-col="2"></td>
+                        <td data-row="0" data-col="3"></td>
+                        <td data-row="0" data-col="4" class="player_1 current"></td>
+                        <td data-row="0" data-col="5"></td>
+                        <td data-row="0" data-col="6"></td>
+                        <td data-row="0" data-col="7"></td>
+                        <td data-row="0" data-col="8"></td>
+                        <td data-row="0" data-col="9"></td>
+                    </tr>
+                    <tr>
+                        <td data-row="1" data-col="0"></td>
+                        <td data-row="1" data-col="1"></td>
+                        <td data-row="1" data-col="2"></td>
+                        <td data-row="1" data-col="3"></td>
+                        <td data-row="1" data-col="4"></td>
+                        <td data-row="1" data-col="5"></td>
+                        <td data-row="1" data-col="6"></td>
+                        <td data-row="1" data-col="7" class="obstacle"></td>
+                        <td data-row="1" data-col="8"></td>
+                        <td data-row="1" data-col="9"></td>
+                    </tr>
+                    <tr>
+                        <td data-row="2" data-col="0"></td>
+                        <td data-row="2" data-col="1" class="obstacle"></td>
+                        <td data-row="2" data-col="2"></td>
+                        <td data-row="2" data-col="3"></td>
+                        <td data-row="2" data-col="4"></td>
+                        <td data-row="2" data-col="5"></td>
+                        <td data-row="2" data-col="6"></td>
+                        <td data-row="2" data-col="7"></td>
+                        <td data-row="2" data-col="8"></td>
+                        <td data-row="2" data-col="9"></td>
+                    </tr>
+                    <tr>
+                        <td data-row="3" data-col="0"></td>
+                        <td data-row="3" data-col="1"></td>
+                        <td data-row="3" data-col="2"></td>
+                        <td data-row="3" data-col="3"></td>
+                        <td data-row="3" data-col="4"></td>
+                        <td data-row="3" data-col="5"></td>
+                        <td data-row="3" data-col="6"></td>
+                        <td data-row="3" data-col="7"></td>
+                        <td data-row="3" data-col="8" class="obstacle"></td>
+                        <td data-row="3" data-col="9"></td>
+                    </tr>
+                    <tr>
+                        <td data-row="4" data-col="0"></td>
+                        <td data-row="4" data-col="1"></td>
+                        <td data-row="4" data-col="2"></td>
+                        <td data-row="4" data-col="3"></td>
+                        <td data-row="4" data-col="4" class="obstacle"></td>
+                        <td data-row="4" data-col="5"></td>
+                        <td data-row="4" data-col="6"></td>
+                        <td data-row="4" data-col="7"></td>
+                        <td data-row="4" data-col="8"></td>
+                        <td data-row="4" data-col="9" class="player_2"></td>
+                    </tr>
+                    <tr>
+                        <td data-row="5" data-col="0"></td>
+                        <td data-row="5" data-col="1"></td>
+                        <td data-row="5" data-col="2"></td>
+                        <td data-row="5" data-col="3"></td>
+                        <td data-row="5" data-col="4"></td>
+                        <td data-row="5" data-col="5"></td>
+                        <td data-row="5" data-col="6"></td>
+                        <td data-row="5" data-col="7"></td>
+                        <td data-row="5" data-col="8"></td>
+                        <td data-row="5" data-col="9"></td>
+                    </tr>
+                    <tr>
+                        <td data-row="6" data-col="0"></td>
+                        <td data-row="6" data-col="1"></td>
+                        <td data-row="6" data-col="2"></td>
+                        <td data-row="6" data-col="3" class="obstacle"></td>
+                        <td data-row="6" data-col="4" class="obstacle"></td>
+                        <td data-row="6" data-col="5"></td>
+                        <td data-row="6" data-col="6"></td>
+                        <td data-row="6" data-col="7"></td>
+                        <td data-row="6" data-col="8"></td>
+                        <td data-row="6" data-col="9"></td>
+                    </tr>
+                    <tr>
+                        <td data-row="7" data-col="0" class="player_3"></td>
+                        <td data-row="7" data-col="1"></td>
+                        <td data-row="7" data-col="2"></td>
+                        <td data-row="7" data-col="3"></td>
+                        <td data-row="7" data-col="4"></td>
+                        <td data-row="7" data-col="5"></td>
+                        <td data-row="7" data-col="6" class="obstacle"></td>
+                        <td data-row="7" data-col="7"></td>
+                        <td data-row="7" data-col="8"></td>
+                        <td data-row="7" data-col="9"></td>
+                    </tr>
+                    <tr>
+                        <td data-row="8" data-col="0"></td>
+                        <td data-row="8" data-col="1"></td>
+                        <td data-row="8" data-col="2"></td>
+                        <td data-row="8" data-col="3"></td>
+                        <td data-row="8" data-col="4"></td>
+                        <td data-row="8" data-col="5"></td>
+                        <td data-row="8" data-col="6"></td>
+                        <td data-row="8" data-col="7"></td>
+                        <td data-row="8" data-col="8"></td>
+                        <td data-row="8" data-col="9"></td>
+                    </tr>
+                    <tr>
+                        <td data-row="9" data-col="0"></td>
+                        <td data-row="9" data-col="1"></td>
+                        <td data-row="9" data-col="2"></td>
+                        <td data-row="9" data-col="3"></td>
+                        <td data-row="9" data-col="4" class="obstacle"></td>
+                        <td data-row="9" data-col="5"></td>
+                        <td data-row="9" data-col="6"></td>
+                        <td data-row="9" data-col="7"></td>
+                        <td data-row="9" data-col="8"></td>
+                        <td data-row="9" data-col="9"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-4  bg-green  long">
+                <!-- ICI on construit la zone "joueur" ! -->
+                <ul class="bg-blue inline players">
+                    <li class="player player_1 current"> J1 </li>
+                    <li class="player player_2"> J2 </li>
+                    <li class="player player_3"> J3 </li>
+                </ul>
+                <ul>
+                    <li> Current Player : Player 1</li>
+                    <li> PV: 3/3</li>
+                    <li> PM: 3/3</li>
+                    <li> PA: 1/1</li>
+                    <li> <a href="#"> Pass ! </a> </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row milong">
+            <div class="col-md-12 bg-red milong">
+                <textarea class="expanded"></textarea>
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+    <script src=" https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js " integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa " crossorigin="anonymous "></script>
+</body>
+
+</html>

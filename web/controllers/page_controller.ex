@@ -8,7 +8,6 @@ defmodule UpsilonBattle.PageController do
     jours = [:lundi, :mardi, :mercredi, :jeudi, :vendredi, :samedi, :dimanche ]
 
     #Exercice 2
-
     default = %{ "aujourdhui" => (:rand.uniform(7) -1 ), "dans_x_jours" => 45 }
     # On merge (fusionne) les deux maps, de facon a ce qu'on ai des valeurs valide 
     # quelque soit le contenu de param
