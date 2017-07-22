@@ -2,8 +2,11 @@
             <div class="col-md-12 bg-red court">
                 <h1> Upsilon Battle <small> Bataille en cours … </small></h1>
                 <span id="screen_top">
+                    <label for="max_width">Colones</label>
                     <input type="number" min="3" max="20" id="max_width" value="10"></input>
+                    <label for="max_height">Lignes</label>
                     <input type="number" min="3" max="20" id="max_height" value="10"></input>
+                    <label for="max_obstacle">Densité des obstacles</label>
                     <input type="number" min="3" max="50" id="max_obstacle" value="10"></input>
                     <button id="begin_btn"> Commencer le combat ! </button>
                 </span>
