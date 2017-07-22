@@ -20,7 +20,7 @@ defmodule UpsilonBattle.PageController do
     # La fonction est appelé en cas de conflit ( les deux maps présente la même clé )
     # Ici nous voulons en profiter pour convertir la String en chiffre
     # Avec la fonction String.to_intger()
-    resultat = Map.merge(default, params, fn(_k, d, p )->
+    resultat = Map.merge(default, params, fn(_k, _d, p )->
         String.to_integer(p)
       end)
 
@@ -40,5 +40,9 @@ defmodule UpsilonBattle.PageController do
     |> assign(:cible, resultat["dans_x_jours"] )
     |> assign(:resultat, Enum.at(jours, jour_cible))
     |> render("index.html")
+  end
+
+  def test(conn, _param) do 
+    render conn, "test.html"
   end
 end

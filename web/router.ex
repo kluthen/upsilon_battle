@@ -23,6 +23,7 @@ defmodule UpsilonBattle.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/test", PageController, :test
     get "/battle/", BattleController, :index
     get "/battle/map", BattleController, :map
     post "/battle/new_user", BattleController, :new_player

@@ -1,0 +1,39 @@
+<div class="row court">
+            <div class="col-md-12 bg-red court">
+                <h1> Upsilon Battle <small> Bataille en cours … </small></h1>
+                <span id="screen_top">
+                    <input type="number" min="3" max="20" id="max_width" value="10"></input>
+                    <input type="number" min="3" max="20" id="max_height" value="10"></input>
+                    <input type="number" min="3" max="50" id="max_obstacle" value="10"></input>
+                    <button id="begin_btn"> Commencer le combat ! </button>
+                </span>
+            </div>
+        </div>
+        <div class="row long">
+            <div class="col-md-8  bg-blue long">
+                <div id="board">
+                    <p> COUCOU </p>
+                </div>
+            </div>
+            <div class="col-md-4  bg-green  long">
+                <!-- ICI on construit la zone "joueur" ! -->
+                <ul class="bg-blue inline players" id="player_list">
+                    <li class="player player_1"> J1 </li>
+                    <li class="player player_2"> J2 </li>
+                    <li class="player player_3"> J3 </li>
+                </ul>
+                <ul id="player_data">
+                    <li> Current Player : <span id="current_player"> Player 1 </span> </li>
+                    <li> PV: <span id="player_pv">3</span>/3</li>
+                    <li> PM: <span id="player_pm">3</span>/3</li>
+                    <li> PA: <span id="player_pa">1</span>/1</li>
+                    <li> <button id="pass_btn"> Pass ! </button> </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row milong">
+            <div class="col-md-12 bg-red milong">
+                <textarea class="expanded" id="log"></textarea>
+            </div>
+        </div>
+    </div>
