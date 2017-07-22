@@ -190,14 +190,14 @@ put = fn tableau, marqueur, x, y  ->
                 # on va devoir créer un nouveau tableau, identique au premier
                 # avec pour seul difference le nouveau caractere. 
                 nb_lignes = length( tableau )-1
-                ntable = for cx <- 0..nb_lignes do 
-                    ligne = Enum.at(tableau, cx)
+                ntable = for cy <- 0..nb_lignes do 
+                    ligne = Enum.at(tableau, cy)
                     nb_colones = length( ligne )-1
-                    for cy <- 0..nb_colones do 
+                    for cx <- 0..nb_colones do 
                         if cx == x and cy == y do 
                             marqueur
                         else
-                            Enum.at(ligne, cy)
+                            Enum.at(ligne, cx)
                         end 
                     end
                 end
