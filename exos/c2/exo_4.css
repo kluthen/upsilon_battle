@@ -39,6 +39,10 @@
  .obstacle {
      background-color: black;
  }
+ 
+ .bordure {
+     background-color: black;
+ }
  /* Bon avec ce code la on rend visible les bordures de la table */
  
  table tr td {
@@ -51,8 +55,9 @@
  table {
      border-collapse: collapse;
      position: relative;
-     margin: auto;
-     top: 150px;
+     margin: 0 auto;
+     width: 80%;
+     height: 80%;
  }
  
  .players {

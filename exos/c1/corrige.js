@@ -21,6 +21,8 @@ dans_x_jours = 45
 jour_cible = (aujourdhui + dans_x_jours) % 7
 console.log("Dans " + dans_x_jours + " jours, sachant que nous somme un " + jours[aujourdhui] + " nous serons un " + jours[jour_cible])
 
+// Math.floor((Math.random() * 10) + 1);
+
 
 console.log("Exercice 2")
 
