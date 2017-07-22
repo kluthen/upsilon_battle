@@ -57,13 +57,13 @@ jeu = {
         if (y >= 0 && y < this.tableau.length) {
             ligne = this.tableau[y];
             // même chose avec les colones.
-            if (x >= 0 && y < ligne.length) {
+            if (x >= 0 && x < ligne.length) {
                 return { ok: ligne[x] }
             } else {
-                return { erreur: "y_invalide" }
+                return { erreur: "x_invalide" }
             }
         } else
-            return { erreur: "x_invalide" }
+            return { erreur: "y_invalide" }
     },
     /** 
      * Faire une fonction qui génère le tableau précédant, prenant en paramètre la hauteur et la largeur, elle doit renvoyer le {: ok, tableau }
