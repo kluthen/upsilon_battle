@@ -440,6 +440,11 @@ jeu = {
         if (x == joueur.x && y == joueur.y) {
             logging("Mais non il devien fou et tente de s'attaquer lui même !");
         } else {
+            distance = Math.abs(joueur.x - x) + Math.abs(joueur.y - y);
+            if (distance > 1) {
+                logging("Il est interdit de jetté son couteau !");
+                return;
+            }
             // on cherche le joueur ciblé par ca position
             for (var i = 0; i < 3; i++) {
                 p = this.joueurs[i];
