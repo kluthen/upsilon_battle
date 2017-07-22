@@ -102,23 +102,23 @@ print(tableau_2);
 console.log("Exercice 4");
 /**
 Faire une fonction qui retourne l’ objet a une position donnée du tableau(params: tableau, x, y) retourne {: ok, valeur }, {: erreur,: x_invalide }, {: erreur,: y_invalide }
-
+On notera que le premier tableau correspond au lignes, et les tableaux a l'interieur correspondes au case ( colones ) de chaque ligne !
 */
 
 search = function(tableau, x, y) {
     // en javascript and s'ecris &&
     // ici on test que x est dans le tableau 
     // (sinon javascript pas content)
-    if (x >= 0 && x < tableau.length) {
-        ligne = tableau[x];
+    if (y >= 0 && y < tableau.length) {
+        ligne = tableau[y];
         // même chose avec les colones.
-        if (y >= 0 && y < ligne.length) {
-            return { ok: ligne[y] }
+        if (x >= 0 && x < ligne.length) {
+            return { ok: ligne[x] }
         } else {
-            return { erreur: "y_invalide" }
+            return { erreur: "x_invalide" }
         }
     } else
-        return { erreur: "x_invalide" }
+        return { erreur: "y_invalide" }
 }
 
 console.log(search(tableau, 5, 5).ok);
@@ -184,7 +184,7 @@ put = function(tableau, marqueur, x, y) {
     res = search(tableau, x, y);
     // On test qu'il n'y a pas d'erreur. 
     if (res.erreur == undefined) {
-        tableau[x][y] = marqueur;
+        tableau[y][x] = marqueur;
         return { ok: tableau };
     } else {
         return { erreur: "position_invalide" };
