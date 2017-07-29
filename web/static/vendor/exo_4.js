@@ -543,6 +543,7 @@ $('#begin_btn').on('click', function() {
     // il faut donc l'afficher ! 
     // on s'assure que le contenu de l'element board est juste une table vide.;
     board_el = $('#board');
+    board_el.html('');
     board_el.html('<table></table>');
 
     board_tab = $('#board table');
