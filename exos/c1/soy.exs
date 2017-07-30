@@ -10,21 +10,70 @@ IO.puts "Dans #{plustard} jours, sachant que nous somme un #{Enum.at(jours, aujo
 largeur= [1,2,3,4,5,6,7,8,9,10]
 hauteur= [1,2,3,4,5,6,7,8,9,10]
 
-resultat = for ligne <- hauteur do
-    for colone <- largeur do
-        case ligne do
-            1 ->"x"
-            10 -> "x"
-            _   ->
+tableau2 = 
+    for ligne <- hauteur do
+        for colone <- largeur do
+            case ligne do
+                1 ->"x"
+                10 -> "x"
+                _   ->
                 
-                case colone do 
-                    1 ->"x"
-                    10 ->"x"
-                    _  ->"o"
-                end
-        end 
+                    case colone do 
+                        1 ->"x"
+                        10 ->"x"
+                        _  ->"o"
+                    end
+            end 
+
+        end
+
+    end
+
+    
+tableau3 = 
+    for ligne <- 0..5 do
+        for colone <- 0..3 do
+            case ligne do
+                0 ->"x"
+                5 -> "x"
+                _   ->
+                
+                    case colone do 
+                        0 ->"x"
+                        3 ->"x"
+                        _  ->"o"
+                    end
+            end 
+
+        end
+
+    end
+
+affiche= fn tab -> 
+    for ligne <- tab do
+        IO.puts Enum.join(ligne)
+    end
+end
+
+affiche.(tableau2)
+affiche.(tableau3)
+IO.inspect tableau2
+
+cherche = fn tab, colone_recherche, ligne_recherche ->
+    ligne= Enum.at(tab, ligne_recherche, {:erreur, :ligne_invalide})
+    case ligne do
+       {:erreur, :ligne_invalide} -> {:erreur, :ligne_invalide} 
+       _ -> 
+        valeur= Enum.at(ligne, colone_recherche,{:erreur, :colone_invalide})
+        case valeur do
+            {:erreur, :colone_invalide} -> {:erreur, :colone_invalide}
+            _ -> {:ok, valeur}
+        end
     end
 end
 
 
-IO.inspect resultat
+IO.inspect cherche.(tableau2, 0,5)
+IO.inspect cherche.(tableau2, 2,2)
+IO.inspect cherche.(tableau2, 25,2)
+IO.inspect cherche.(tableau2, 25,852)
