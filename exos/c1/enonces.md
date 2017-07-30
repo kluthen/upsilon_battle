@@ -13,7 +13,7 @@ XXXXXX
 
 * Faire une fonction qui retourne l’objet a une position donnée du tableau (params: tableau, x, y) retourne {:ok, valeur}, {:erreur, :x_invalide}, {:erreur, :y_invalide} 
 
-* Faire une fonction qui génère le tableau précédant, prenant en paramètre la hauteur et la largeur, elle doit renvoyer le {:ok, tableau} ou {:erreur, :hauteur} ou {:erreur, :largeur}  en cas de paramètres invalide. (paramètre valide: > 5 )
+* Faire une fonction qui génère le tableau précédant, prenant en paramètre la hauteur et la largeur, elle doit renvoyer le {:ok, tableau} ou {:erreur, :hauteur} ou {:erreur, :largeur}  en cas de paramètres invalide. (paramètre valide: >= 5 )
 
 * Faire une fonction qui ajoute un marqueur dans le tableau (params: tableau, marqueur(A,B,C,D), position).
     En cas de positionnement valide ( case cible = 0 ) renvois {:ok, nouveau tableau }, sinon {:erreur, :position_invalide}

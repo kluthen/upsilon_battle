@@ -77,3 +77,36 @@ IO.inspect cherche.(tableau2, 0,5)
 IO.inspect cherche.(tableau2, 2,2)
 IO.inspect cherche.(tableau2, 25,2)
 IO.inspect cherche.(tableau2, 25,852)
+
+
+cree = fn hauteur, largeur ->
+    if largeur >=5 and hauteur >=5 do
+        res = for ligne <- 0..(hauteur-1) do
+            for colone <- 0..(largeur-1) do
+                max_h = hauteur - 1
+                case ligne do
+                    0 ->"x"
+                    ^max_h -> "x"
+                    _   ->
+                        max_l =largeur-1
+                        case colone do 
+                            0 ->"x"
+                            ^max_l ->"x"
+                            _  ->"o"
+                        end
+                end 
+
+            end
+
+        end
+        {:ok, res}
+    else
+        {:erreur, :parametre_invalide}
+    end
+end
+
+t = cree.(20,20)
+IO.inspect t
+{:ok, tab3} = t
+affiche.(tab3)
+IO.inspect cree.(-5,2)
