@@ -28,6 +28,17 @@
             ]
         },
         {
+            "command": "mix",
+            "taskName": "test_elixir",
+            "args": [
+                "test"
+            ],
+            "problemMatcher": [
+                "$mixCompileError",
+                "$mixCompileWarning"
+            ]
+        },
+        {
             "command": "node",
             "taskName": "run_node",
             "args": [

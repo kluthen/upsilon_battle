@@ -12,8 +12,8 @@ config :logger, level: :warn
 # Configure your database
 config :upsilon_battle, UpsilonBattle.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "upsilon_battle_test",
-  hostname: "localhost",
+  username: "bastien",
+  password: "G6PVz5qUGbs0C90BemcI4EYFemyEKz",
+  database: "upsilon_bastien_test",
+  hostname: "ecumeurs.fr",
   pool: Ecto.Adapters.SQL.Sandbox

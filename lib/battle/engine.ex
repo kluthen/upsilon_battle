@@ -1,11 +1,49 @@
 defmodule UpsilonBattle.Engine do 
-    defstruct map_id: UUID.uuid4()
+    alias UpsilonBattle.Player
+    alias UpsilonBattle.Map, as: UMap
+    alias UpsilonBattle.Position
+    import UpsilonBattle.Position
+    alias UpsilonBattle.Engine
+
+    defstruct map_id: UUID.uuid4(), users: [], players: [], map: %UMap{}
 
     @doc """
         Initialise le moteur.
     """
-    def init(_context) do 
+    def init(context) do 
+        %Engine{context| map: UMap.init!(context.map, 15+:rand.uniform(10), 15+:rand.uniform(10)) }
+    end
 
+    @doc """
+        Prepare des cases de depart autorisé ( et valide ) pour un joueur selon son orientation
+        retourne [{x,y},]
+    """
+    def generate_player_initial_positions(context, orientation) do
+        
+        seek_position_in = fn border -> 
+            Enum.reduce(border, [], fn current, candidates -> 
+                if current == '0' 
+                    and length(candidates) < 3 
+                    and :rand.uniform(1) == 1 do 
+                    [current|candidates]
+                else 
+                    candidates
+                end
+            end)
+        end
+
+        case orientation do 
+            1 -> # TOP
+                seek_position_in.(for x <- 1..(context.map.width-2), do: UMap.at!(context.map, ~p(x,1)))
+            2 -> # LEFT
+                seek_position_in.(for y <- 1..(context.map.height-2), do: UMap.at!(context.map, ~p(1,y)))
+            3 -> # BOTTOM
+                seek_position_in.(for x <- 1..(context.map.width-2), do: UMap.at!(context.map, ~p(x,context.map.height-2)))
+            4 -> # RIGHT
+                seek_position_in.(for y <- 1..(context.map.height-2), do: UMap.at!(context.map, ~p(context.map.width-2,y)))
+            _ ->
+                []
+        end
     end
 
     @doc """
@@ -13,22 +51,31 @@ defmodule UpsilonBattle.Engine do
         Peux echouer si y a deja 4 joueurs ... 
         retour: {:ok, context, [positions_depart_dispo] } ou {:ok, context, :observateur}
     """
-    def add_user(_context, _user_id, _username) do 
+    def add_user(context, user_id, username) do 
 
+        nplayer = %Player{user_id: user_id, username: username}
+        if length(context.players) < 4 do 
+            nplayer = %Player{nplayer| player: true}
+            context = %Engine{context| players: [nplayer|context.players]}
+            {:ok, context, generate_player_initial_positions(context, length(context.players))}
+        else
+            context = %Engine{context|users: [nplayer|context.users]}
+            {:ok, context, :observateur}
+        end
     end
 
     @doc """
         Retourne la map
     """ 
-    def get_map(_context) do 
-
+    def get_map(context) do 
+        context.map
     end
 
     @doc """
         Retourne les joueurs
     """
-    def get_players(_context) do 
-
+    def get_players(context) do 
+        context.players
     end
 
     @doc """

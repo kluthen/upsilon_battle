@@ -36,8 +36,18 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :upsilon_battle, UpsilonBattle.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "upsilon_battle_dev",
-  hostname: "localhost",
+  username: "bastien",
+  password: "G6PVz5qUGbs0C90BemcI4EYFemyEKz",
+  database: "upsilon_bastien",
+  hostname: "ecumeurs.fr",
   pool_size: 10
+
+# Master config: 
+# config :upsilon_battle, UpsilonBattle.Repo,
+#   adapter: Ecto.Adapters.Postgres,
+#   username: "master",
+#   password: "zJYj3gV6EVYSrOoNFw2AmB1JyWvyTz",
+#   database: "upsilon_master",
+#   hostname: "ecumeurs.fr",
+#   pool_size: 10
+# 
