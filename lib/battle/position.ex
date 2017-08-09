@@ -17,4 +17,8 @@ defmodule UpsilonBattle.Position do
          [str_x,str_y] = String.split(terms,",")
          %UpsilonBattle.Position{x: String.to_integer(str_x),y: String.to_integer(str_y)}
     end
+
+    def to_string(position) do 
+        "Position: x: #{position.x}, y: #{position.y}"
+    end
 end

@@ -1,5 +1,6 @@
 defmodule UpsilonBattle.Map do 
     alias UpsilonBattle.Map, as: UMap
+    alias UpsilonBattle.Position 
     defstruct content: nil, height: 0, width: 0
 
     def init!(map, lignes, colones) do 
@@ -35,7 +36,7 @@ defmodule UpsilonBattle.Map do
         case at(map,position) do
             {:ok, res} -> res
             {:error, reason} -> raise reason
-            _ -> raise "Failure to find something at requested position"
+            _ -> raise "Failure to find something at requested #{Position.to_string(position)}"
         end
     end
 
@@ -43,7 +44,7 @@ defmodule UpsilonBattle.Map do
         case Enum.at(map.content, position.y, {:erreur,:y_invalide}) do
             {:erreur, _ } = err -> err 
             ligne -> 
-                Enum.at(ligne, position.x, {:erreur, :x_invalide} )
+                {:ok, Enum.at(ligne, position.x, {:erreur, :x_invalide} )}
         end
     end
 
