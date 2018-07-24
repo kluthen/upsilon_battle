@@ -29,4 +29,4 @@ XXXXXX
     sinon {:erreur, :origine_invalide}
     sinon {:erreur, :cible_invalide}
 
-NOTES: en javascript le résultat sera plus proche de {"ok"=> tableau} ou  {"erreur" => "valeur"}
+NOTES: en javascript le résultat sera plus proche de {ok: tableau} ou  {erreur: "valeur"}
